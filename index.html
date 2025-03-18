@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Монстрик на донаты</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+        }
+        #monster {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="monster">😐</div>
+
+    <script>
+        function reactToDonation(amount) {
+            let monster = document.getElementById("monster");
+            if (amount < 10) {
+                monster.textContent = "😊";
+            } else if (amount < 50) {
+                monster.textContent = "🤩";
+            } else {
+                monster.textContent = "🔥";
+            }
+            setTimeout(() => monster.textContent = "😐", 5000);
+        }
+
+        // Пример эмуляции доната через 3 секунды
+        setTimeout(() => reactToDonation(20), 3000);
+    </script>
+</body>
+</html>
+
